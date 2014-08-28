@@ -1,0 +1,17 @@
+RewriteEngine On
+
+RewriteRule ^blog\.html$ index.php?page=page_blog [QSA,L]
+RewriteRule ^index-des-jeux\.html$ index.php?page=page_index [QSA,L]
+RewriteRule ^team\.html$ index.php?page=page_team [QSA,L]
+RewriteRule ^dictionnaire\.html$ index.php?page=page_dico [QSA,L]
+
+RewriteRule ^test-([0-9]+)-(.*)\.html$ index.php?page=page_fiche&id=$1 [QSA,L]
+RewriteRule ^blog-([0-9]+)-(.*)\.html$ index.php?page=page_blog&id=$1 [QSA,L]
+RewriteRule ^team-([0-9]+)-(.*)\.html$ index.php?page=page_team&id=$1 [QSA,L]
+RewriteRule ^dictionnaire-([0-9]+)-(.*)\.html$ index.php?page=page_dico&id=$1 [QSA,L]
+
+AuthType Basic
+AuthName Maintenance
+AuthUserFile /sites/shmup/.htpasswd
+
+require valid-user
